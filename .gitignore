@@ -1,0 +1,14 @@
+/.vscode
+
+*.sqlite3
+
+__pycache__
+migrations
+
+# React
+build
+node_modules
+
+# Django stuff:
+*.log
+local_settings.py
