@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Button, Grid, Typography, TextField, FormHelperText, FormControl, Radio, RadioGroup, FormControlLabel} from '@material-ui/core'
+import {Button, Grid, Typography, TextField, FormHelperText, FormControl, Radio, RadioGroup, FormControlLabel, Box} from '@material-ui/core'
 import {Link} from 'react-router-dom'
 
 const CreateRoomPage = props =>{
@@ -26,32 +26,22 @@ const CreateRoomPage = props =>{
     }
     
     return(
-        <Grid container spacing={1}>
-            <Grid item xs={12} align="center">
-                <Typography component='h4' variant='h4'>Create A Room</Typography>
-            </Grid>
-            <Grid item xs={12} align="center">
-                <FormControl>
-                    <FormHelperText>Guest Control of Playback State</FormHelperText>
-                    <RadioGroup row defaultValue='true' onChange={handleGuestCanPauseChange}>
-                        <FormControlLabel value='true' label='Play/Pause' labelPlacement='bottom' control={<Radio color='primary'/>}/>
-                        <FormControlLabel value='false' label='No Control' labelPlacement='bottom' control={<Radio color='secondary'/>}/>
-                    </RadioGroup>
-                </FormControl>    
-            </Grid>
-            <Grid item xs={12} align="center">
-                <FormControl>
-                    <TextField required type='number' defaultValue={2} inputProps={{min:1}} onChange={handleVotesChange}/>
-                    <FormHelperText>Votes required to skip song</FormHelperText>
-                </FormControl>
-            </Grid>
-            <Grid item xs={12} align="center">
-                <Button color="primary" variant='contained' onClick={handleRoomButtonPressed}>Create A Room</Button>
-            </Grid>
-            <Grid item xs={12} align="center">
-                <Button color="secondary" variant='contained' to='/' component={Link}>Back</Button>
-            </Grid>
-        </Grid>
+        <Box className="CreateRoom" boxShadow={10}>
+            <Typography component='h4' variant='h4'>Create A Room</Typography>
+            <FormControl>
+                <FormHelperText style={{textAlign:'center'}}>Guest Control of Playback State</FormHelperText>
+                <RadioGroup row defaultValue='true' onChange={handleGuestCanPauseChange}>
+                    <FormControlLabel value='true' label='Play/Pause' labelPlacement='bottom' control={<Radio color='primary'/>}/>
+                    <FormControlLabel value='false' label='No Control' labelPlacement='bottom' control={<Radio color='secondary'/>}/>
+                </RadioGroup>
+            </FormControl>
+            <FormControl>
+                <TextField required type='number' defaultValue={2} inputProps={{min:1, style:{textAlign:'center'}}} onChange={handleVotesChange}/>
+                <FormHelperText>Votes required to skip song</FormHelperText>
+            </FormControl>
+            <Button color="primary" variant='contained' onClick={handleRoomButtonPressed}>Create A Room</Button>
+            <Button color="secondary" variant='contained' to='/' component={Link}>Back</Button>
+        </Box>
     )
 }
 

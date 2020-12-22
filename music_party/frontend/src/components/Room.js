@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {Box, TextField} from '@material-ui/core'
 
 const Room = props =>{
     //State
@@ -17,12 +18,12 @@ const Room = props =>{
     },[])
 
     return(
-        <div>
+        <Box display='flex' flexDirection='column' justifyContent='center'>
             <h3>{props.match.params.roomCode}</h3>
-            <p>Guest can pause: {GuestCanPauseState ? 'Yes' : 'No'}</p>
-            <p>Votes to skip: {VotesToSkipState}</p>
-            <p>You are the host: {IsHostState ? 'Yes' : 'No'}</p>
-        </div>
+            <TextField variant='outlined' label='Guest can pause:' value={GuestCanPauseState ? 'Yes' : 'No'}/>
+            <TextField variant='outlined' label='Votes to skip:' value={VotesToSkipState} />
+            <TextField variant='outlined' label='You are host:' value={IsHostState ? 'Yes' : 'No'} />
+        </Box>
     )
 }
 
