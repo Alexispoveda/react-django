@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Button, Grid, Typography, TextField, FormHelperText, FormControl, Radio, RadioGroup, FormControlLabel} from '@material-ui/core'
 import {Link} from 'react-router-dom'
 
-const CreateRoomPage = () =>{
+const CreateRoomPage = props =>{
     //State
     const [GuestCanPauseState, setGuestCanPauseState] = useState(true)
     const [VotesToSkipState, setVotesToSkipState] = useState(2)
@@ -22,7 +22,7 @@ const CreateRoomPage = () =>{
             })
         }
 
-        fetch('/api/create-room', requestOptions).then(response=>response.json()).then(data =>console.log(data))
+        fetch('/api/create-room', requestOptions).then(response=>response.json()).then(data =>props.history.push('/room/'+data.code))
     }
     
     return(
