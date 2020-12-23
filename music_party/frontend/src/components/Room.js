@@ -20,9 +20,9 @@ const Room = props =>{
     return(
         <Box display='flex' flexDirection='column' justifyContent='center'>
             <h3>{props.match.params.roomCode}</h3>
-            <TextField variant='outlined' label='Guest can pause:' value={GuestCanPauseState ? 'Yes' : 'No'}/>
-            <TextField variant='outlined' label='Votes to skip:' value={VotesToSkipState} />
-            <TextField variant='outlined' label='You are host:' value={IsHostState ? 'Yes' : 'No'} />
+            <TextField variant='filled' label='Guest can pause:' value={GuestCanPauseState ? 'Yes' : 'No'} style={{margin:'5%'}}/>
+            <TextField variant='filled' label='Votes to skip:' value={VotesToSkipState} style={{margin:'5%'}}/>
+            <TextField variant='filled' label='You are host:' value={IsHostState ? 'Yes' : 'No'} style={{margin:'5%'}}/>
         </Box>
     )
 }
